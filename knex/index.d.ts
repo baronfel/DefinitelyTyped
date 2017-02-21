@@ -33,7 +33,9 @@ interface Knex extends Knex.QueryInterface {
     seed: any;
     fn: Knex.FunctionHelper;
     // TODO: these are the same functions on the querybuilder interface, find a way to de-dupe
-    on(event: 'query', callback: ResultCallback<any>): Knex.QueryBuilder;
+    on(event: 'query', callback: ResultCallback<any>): Knex.
+    
+    ;
     on(event: 'query-error', callback: GenericCallback<any>): Knex.QueryBuilder;
     on(event: 'query-response', callback: (response: any, obj: any, builder: Knex.QueryBuilder) => void): Knex.QueryBuilder;
 }
@@ -135,7 +137,8 @@ declare namespace Knex {
 
         debug(enabled?: boolean): QueryBuilder;
         pluck(column: string): QueryBuilder;
-
+        
+        batchInsert(tableName : TableName, data : any[], chunksize? : number) : QueryBuilder;
         insert(data: any, returning?: string | string[]): QueryBuilder;
         update(data: any, returning?: string | string[]): QueryBuilder;
         update(columnName: string, value: Value, returning?: string | string[]): QueryBuilder;
